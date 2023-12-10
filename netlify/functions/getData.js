@@ -35,7 +35,7 @@ exports.handler = async function (event, context) {
         // Handling DELETE request to delete a city
         const cityIdToDelete = event.queryStringParameters.id;
         const indexToDelete = data.cities.findIndex(
-            (city) => city.id === cityIdToDelete
+            (city) => Number(city.id) === Number(cityIdToDelete)
         );
         data.cities.splice(indexToDelete, 1);
 
