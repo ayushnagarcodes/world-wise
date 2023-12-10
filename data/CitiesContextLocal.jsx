@@ -1,3 +1,6 @@
+// To run locally:
+// copy this file to "src/contexts" and rename to "CitiesContext.jsx" (replace any existing files)
+
 import {
     createContext,
     useCallback,
@@ -6,7 +9,7 @@ import {
     useState,
 } from "react";
 
-const BASE_URL = "/.netlify/functions/getData";
+const BASE_URL = "http://localhost:8000";
 
 const CitiesContext = createContext();
 
@@ -19,7 +22,7 @@ function CitiesProvider({ children }) {
         async function fetchCities() {
             try {
                 setIsLoading(true);
-                const res = await fetch(`${BASE_URL}`);
+                const res = await fetch(`${BASE_URL}/cities`);
                 const data = await res.json();
                 setCities(data);
             } catch {
@@ -37,9 +40,9 @@ function CitiesProvider({ children }) {
 
             try {
                 setIsLoading(true);
-                const res = await fetch(`${BASE_URL}/?id=${id}`);
+                const res = await fetch(`${BASE_URL}/cities/${id}`);
                 const data = await res.json();
-                setCurrentCity(data.city);
+                setCurrentCity(data);
             } catch {
                 alert("There was an error loading data...");
             } finally {
@@ -52,7 +55,7 @@ function CitiesProvider({ children }) {
     async function createCity(newCity) {
         try {
             setIsLoading(true);
-            const res = await fetch(`${BASE_URL}`, {
+            const res = await fetch(`${BASE_URL}/cities`, {
                 method: "POST",
                 body: JSON.stringify(newCity),
                 headers: {
@@ -60,8 +63,8 @@ function CitiesProvider({ children }) {
                 },
             });
             const data = await res.json();
-            setCities((cities) => [...cities, data.newCity]);
-            setCurrentCity(data.newCity);
+            setCities((cities) => [...cities, data]);
+            setCurrentCity(data);
         } catch {
             alert("There was an error creating city...");
         } finally {
@@ -72,12 +75,8 @@ function CitiesProvider({ children }) {
     async function deleteCity(id) {
         try {
             setIsLoading(true);
-            await fetch(`${BASE_URL}/?id=${id}`, {
+            await fetch(`${BASE_URL}/cities/${id}`, {
                 method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ id }),
             });
             setCities((cities) => cities.filter((city) => city.id !== id));
         } catch {

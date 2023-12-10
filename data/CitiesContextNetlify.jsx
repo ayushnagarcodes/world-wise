@@ -1,3 +1,6 @@
+// For Netlify Functions:
+// copy this file to "src/contexts" and rename to "CitiesContext.jsx" (replace any existing files)
+
 import {
     createContext,
     useCallback,
