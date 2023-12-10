@@ -59,6 +59,30 @@
         "lng": "2.65869140625"
       },
       "id": 98443199
+    },
+    {
+      "cityName": "Jaipur",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2023-12-10T08:27:31.419Z",
+      "notes": "It was fun! I visited Hawah Mahal, Amer Fort, and Jantar Mantar.",
+      "position": {
+        "lat": "26.857712980833316",
+        "lng": "75.80017089843751"
+      },
+      "id": 98443200
+    },
+    {
+      "cityName": "Bikaner",
+      "country": "India",
+      "emoji": "🇮🇳",
+      "date": "2023-10-19T09:18:27.000Z",
+      "notes": "",
+      "position": {
+        "lat": "27.913496764061446",
+        "lng": "73.43261718750001"
+      },
+      "id": 98443201
     }
   ]
 }
