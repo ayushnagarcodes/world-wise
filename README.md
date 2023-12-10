@@ -12,6 +12,8 @@ Watch live <a href="https://ayush-world-wise.netlify.app/" target="_blank">here<
 - Choose cities effortlessly through an interactive map interface.
 - Log the date of your visit and add personalized notes.
 
+<br />
+
 ## Tools and Packages
 
 - **Build Tool:** [Vite](https://vitejs.dev/) for efficient project building.
@@ -19,8 +21,8 @@ Watch live <a href="https://ayush-world-wise.netlify.app/" target="_blank">here<
 - React Router to implement routing.
 - This project uses Netlify functions to create an API endpoint to get the required data, post new data and delete existing entries.
 - To run the project locally, I have used `json-server` node package.
-    <br />
-    <br />
+    
+<br />
 
 ## Project Setup
 
